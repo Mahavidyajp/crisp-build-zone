@@ -14,3 +14,4 @@
 - Use a shared React provider for the session ledger and a typed API adapter; the isolated, clearly labelled demo adapter never stores financial data in browser storage.
 - Render shareable finance screens as individual TanStack leaf routes inside a shared adaptive shell, with reusable finance views and forms.
 - Keep native camera, share, secure storage, biometrics, and receipt extraction behind capability interfaces; unavailable integrations must never imply success.
+- Keep visual theme and motion in semantic global tokens, with reusable settings summary tools separate from ledger logic; presentation updates must not alter financial behavior.
