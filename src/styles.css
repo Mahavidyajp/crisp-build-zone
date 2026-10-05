@@ -158,7 +158,7 @@ progress::-webkit-progress-bar { background:var(--secondary); } progress::-webki
  .mobile-nav a[data-status='active'] { color:var(--foreground); } .mobile-nav a[data-status='active'] svg { color:var(--primary); }
  .mobile-nav svg { width:19px; height:19px; }
  .stat-band { gap:14px; padding-bottom:22px; margin-bottom:22px; } .stat-band .stat-value { font-size:23px; } .stat-band label { font-size:10px; }
- .sheet-content { translate:none; animation:none!important; top:auto; bottom:0; left:0; width:100%; transform:none; border-radius:12px 12px 0 0; max-height:92dvh; padding-bottom:calc(24px + env(safe-area-inset-bottom)); }
+ .sheet-content { translate:0 0!important; transform:none!important; --tw-translate-x:0; --tw-translate-y:0; animation:none!important; top:auto; bottom:0; left:0; width:100%; transform:none; border-radius:12px 12px 0 0; max-height:92dvh; padding-bottom:calc(24px + env(safe-area-inset-bottom)); }
  .activity-list { padding:5px 16px 16px; } .transaction-name { font-size:12px; } .segment { padding:0 13px; }
 }
 @media(prefers-reduced-motion:reduce) { *,*::before,*::after { animation:none!important; transition:none!important; } }
