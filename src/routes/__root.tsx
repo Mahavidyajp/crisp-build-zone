@@ -80,7 +80,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   head: () => ({
     meta: [
       { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { name: "viewport", content: "width=device-width, initial-scale=1, viewport-fit=cover" },
       { title: "Money OS — Your money, made clear" },
       { name: "description", content: "Personal and household finance, thoughtfully organized." },
       
@@ -127,7 +127,7 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       {/* Required: nested routes render here. Removing <MoneyProvider><MoneyShell><Outlet /></MoneyShell><Toaster theme="dark" position="top-center" /></MoneyProvider> breaks all child routes. */}
-      <MoneyProvider><MoneyShell><Outlet /></MoneyShell><Toaster theme="dark" position="top-center" /></MoneyProvider>
+      <MoneyProvider><MoneyShell><Outlet /></MoneyShell><Toaster theme="light" position="top-center" /></MoneyProvider>
     </QueryClientProvider>
   );
 }
