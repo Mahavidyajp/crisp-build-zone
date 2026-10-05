@@ -1,5 +1,7 @@
 # Money OS
 
+- [ ] Match the uploaded balance section and floating icon navigation in a white theme; verify mobile controls and layouts.
+
 - [x] Apply selected Obsidian styling, floating navigation, open section layouts, shadcn controls and expressive reduced-motion-aware animation.
 - [x] Verify all 20 screens at 320/393/768/1280px, mobile navigation, expense dialog, account edit, activity filtering, preference switches, tooltips, reduced motion and ten regression tests; no overflow or browser errors.
 

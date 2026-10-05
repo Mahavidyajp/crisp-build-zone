@@ -127,8 +127,8 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <MoneyProvider><MoneyShell><Outlet /></MoneyShell><Toaster theme="dark" position="top-center" /></MoneyProvider> breaks all child routes. */}
-      <TooltipProvider delayDuration={250}><MoneyProvider><MoneyShell><Outlet /></MoneyShell><Toaster theme="dark" position="top-center" /></MoneyProvider></TooltipProvider>
+      {/* Required: preserve the shared provider and nested route outlet. */}
+      <TooltipProvider delayDuration={250}><MoneyProvider><MoneyShell><Outlet /></MoneyShell><Toaster theme="light" position="top-center" /></MoneyProvider></TooltipProvider>
     </QueryClientProvider>
   );
 }
