@@ -17,6 +17,12 @@
  --positive: oklch(.51 .13 162); --warning: oklch(.53 .12 65); --information: oklch(.57 .15 245);
  --violet: oklch(.64 .13 290); --sidebar: oklch(1 0 0); --sidebar-foreground: var(--foreground);
  --balance-surface: oklch(.95 .026 245);
+ --hero-start: oklch(.2416 .0923 259.23); /* selected #001D4A */
+ --hero-end: oklch(.3489 .1448 260.02); /* selected #013583 */
+ --hero-foreground: oklch(1 0 0);
+ --hero-muted: color-mix(in oklab,var(--hero-foreground) 70%,transparent);
+ --hero-glass: color-mix(in oklab,var(--hero-foreground) 10%,transparent);
+ --hero-line: color-mix(in oklab,var(--hero-foreground) 16%,transparent);
  --balance-gradient: linear-gradient(120deg, oklch(.965 .01 240), oklch(.94 .032 240) 55%, oklch(.88 .06 235));
  --dock-background: oklch(1 0 0); --dock-foreground: var(--foreground); --dock-active: oklch(.92 .007 250); --dock-add: oklch(.23 .012 250); --dock-add-foreground: oklch(1 0 0);
  --border-blue: color-mix(in oklab, var(--primary) 12%, var(--border));
@@ -498,3 +504,42 @@ input:focus-visible,select:focus-visible,textarea:focus-visible { box-shadow:0 0
 }
 @media(max-width:360px) { .balance-number { font-size:30px; }.balance-card { padding:20px; }.money-shell .floating-dock { left:12px; } }
 @media(prefers-reduced-motion:reduce) { .floating-dock { animation:none; } }
+
+/* Selected deep-blue composition; navigation intentionally unchanged. */
+.blue-home>.page-heading { display:none; }
+.blue-home .home-left { gap:0; }
+.blue-home .blue-balance { background:linear-gradient(to bottom,var(--hero-start),var(--hero-end)); color:var(--hero-foreground); min-height:330px; padding:28px 28px 78px; border:0; border-radius:32px 32px 48px 48px; text-align:center; }
+.balance-profile { display:flex; align-items:center; justify-content:space-between; margin-bottom:38px; position:relative; z-index:1; }
+.balance-profile-link { display:flex; gap:12px; align-items:center; color:var(--hero-foreground); text-decoration:none; text-align:left; }
+.balance-profile-link [data-slot='avatar-fallback'],.balance-profile-link .bg-muted { background:var(--hero-glass); color:var(--hero-foreground); border:1px solid var(--hero-line); }
+.balance-profile-link p { font-size:10px; color:var(--hero-muted); margin-bottom:3px; }
+.balance-profile-link span { font-size:14px; }
+.balance-accounts-button { color:var(--hero-foreground); border:1px solid var(--hero-line); background:var(--hero-glass); border-radius:50%; }
+.balance-accounts-button:hover { background:var(--hero-line); color:var(--hero-foreground); }
+.blue-home .blue-balance h2 { color:var(--hero-muted); opacity:1; font-size:14px; }
+.blue-home .balance-number { font-size:36px; font-weight:600; margin-top:4px; padding:0; }
+.balance-summary-pill { display:inline-flex; align-items:center; gap:7px; text-decoration:none; color:var(--hero-muted); background:var(--hero-glass); border:1px solid var(--hero-line); border-radius:999px; padding:7px 12px; margin-top:16px; font-size:11px; }
+.balance-layers { position:absolute; inset:auto 10% -24px; height:70px; pointer-events:none; }
+.balance-layers span { position:absolute; inset:0; border:1px solid var(--hero-line); background:var(--hero-glass); border-radius:16px; transform:rotate(-2deg); }
+.balance-layers span+span { inset:12px 6% -12px; transform:rotate(2deg); }
+.blue-home .blue-actions { position:relative; margin-top:-40px; border-radius:40px 40px 0 0; background:var(--card); padding:30px 24px 26px; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; z-index:2; }
+.blue-actions .quick-action { min-height:68px; height:68px; border-radius:16px; background:var(--muted); border:1px solid var(--border); font-size:11px; }
+.blue-actions .quick-action:nth-child(n) svg { color:var(--primary); }
+.blue-home .home-recent { background:var(--card); padding:0 24px 26px; position:relative; z-index:2; }
+.blue-home .home-recent .section-heading { margin-bottom:10px; }
+.blue-home .home-recent h2 { font-size:18px; font-weight:600; }
+.blue-home .home-recent .subtle-link { color:var(--primary); }
+.blue-home .home-recent .transaction-row { padding:14px 0; border:0; }
+.blue-home .home-recent .transaction-name { font-size:13px; }
+.blue-home .home-recent .category-icon { width:42px; height:42px; border-radius:14px; }
+.blue-home .home-left>.daily-spending,.blue-home .home-left>.metrics,.blue-home .home-left>.attention-panel,.blue-home .home-left>.finance-panel { margin:12px 24px 20px; }
+.blue-home .daily-spending { background:transparent; border-radius:0; padding:18px 0; border-top:1px solid var(--border); }
+@media(max-width:767px) {
+ .blue-home { margin-inline:-22px; }
+ .blue-home .blue-balance { border-radius:0 0 48px 48px; padding:22px 24px 76px; min-height:310px; }
+ .blue-home .balance-profile { margin-bottom:28px; }
+ .blue-home .home-left>section:not(.balance-card):not(.daily-spending) { margin-top:0; }
+ .blue-home .home-right { padding:12px 24px; }
+ .blue-home .home-recent .transaction-caption { font-size:10px; }
+}
+@media(max-width:360px) { .blue-home { margin-inline:-16px; }.blue-home .balance-number { font-size:30px; }.blue-home .blue-actions { padding-inline:18px; gap:8px; }.blue-home .home-recent { padding-inline:18px; } }
