@@ -1,5 +1,9 @@
 # Money OS
 
+- [ ] Audit the installed shadcn library and record an appropriate component usage map.
+- [ ] Unify navigation, search, responsive forms, dates, confirmations, and finance presentation with shadcn primitives while preserving the white reference styling.
+- [ ] Verify every page across mobile, tablet, and desktop sizes and test key finance interactions.
+
 - [x] Match the uploaded balance section and floating icon navigation in a white theme; verify 320/393/768/1280px layouts, expense action, account navigation, and ten regression tests.
 
 - [x] Apply selected Obsidian styling, floating navigation, open section layouts, shadcn controls and expressive reduced-motion-aware animation.
