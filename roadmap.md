@@ -1,5 +1,7 @@
 # Money OS
 
+- [ ] Apply white-and-light-blue theme and improve mobile controls, forms, and safe-area spacing; verify all screens.
+
 - [x] Apply selected Dark Blue Bento styling, Sora/Manrope fonts, and reduced-motion-aware animation without changing financial behavior.
 - [x] Verify updated settings category add/archive, profile navigation, CSV export, expense dialog, nine financial tests, and nine finance screens at 320–1280px; no overflow or browser errors.
 - [x] Build reference-matched adaptive shell and all finance views.
