@@ -3,25 +3,27 @@
 @source "../src";
 @custom-variant dark (&:is(.dark *));
 :root {
- color-scheme: dark;
+ color-scheme: light;
  --radius: .5rem;
- --background: oklch(.12 0 0); --foreground: oklch(.965 .004 160);
- --card: oklch(.175 .002 160); --card-foreground: var(--foreground);
- --popover: oklch(.20 .003 160); --popover-foreground: var(--foreground);
- --primary: oklch(.76 .16 164); --primary-foreground: oklch(.16 .025 164);
- --secondary: oklch(.225 .003 160); --secondary-foreground: var(--foreground);
- --muted: oklch(.20 .002 160); --muted-foreground: oklch(.69 .006 160);
- --accent: oklch(.265 .012 160); --accent-foreground: var(--foreground);
- --destructive: oklch(.72 .17 25); --destructive-foreground: oklch(.14 0 0);
- --border: oklch(.285 .003 160); --input: oklch(.35 .006 160); --ring: var(--primary);
- --positive: oklch(.76 .16 164); --warning: oklch(.79 .14 78); --information: oklch(.74 .14 250);
- --violet: oklch(.76 .10 290); --sidebar: oklch(.15 .002 160); --sidebar-foreground: var(--foreground);
- --balance-surface: oklch(.19 .005 160);
+ --background: oklch(.99 .002 250); --foreground: oklch(.23 .012 250);
+ --card: oklch(1 0 0); --card-foreground: var(--foreground);
+ --popover: oklch(1 0 0); --popover-foreground: var(--foreground);
+ --primary: oklch(.51 .18 255); --primary-foreground: oklch(1 0 0);
+ --secondary: oklch(.955 .006 250); --secondary-foreground: var(--foreground);
+ --muted: oklch(.965 .004 250); --muted-foreground: oklch(.51 .018 250);
+ --accent: oklch(.92 .025 250); --accent-foreground: var(--foreground);
+ --destructive: oklch(.55 .20 25); --destructive-foreground: oklch(1 0 0);
+ --border: oklch(.90 .009 250); --input: oklch(.84 .015 250); --ring: var(--primary);
+ --positive: oklch(.51 .13 162); --warning: oklch(.53 .12 65); --information: oklch(.57 .15 245);
+ --violet: oklch(.64 .13 290); --sidebar: oklch(1 0 0); --sidebar-foreground: var(--foreground);
+ --balance-surface: oklch(.95 .026 245);
+ --balance-gradient: linear-gradient(120deg, oklch(.965 .01 240), oklch(.94 .032 240) 55%, oklch(.88 .06 235));
+ --dock-background: oklch(1 0 0); --dock-foreground: var(--foreground); --dock-active: oklch(.92 .007 250); --dock-add: oklch(.23 .012 250); --dock-add-foreground: oklch(1 0 0);
  --border-blue: color-mix(in oklab, var(--primary) 12%, var(--border));
- --shadow-control: 0 4px 18px oklch(.05 0 0 / 20%);
- --overlay: oklch(.04 0 0 / 65%);
- --shadow-sheet: 0 24px 90px oklch(.04 0 0 / 45%);
- --shadow-dock: 0 12px 40px oklch(.03 0 0 / 55%), 0 1px 0 oklch(1 0 0 / 5%) inset;
+ --shadow-control: 0 4px 18px oklch(.25 .02 250 / 7%);
+ --overlay: oklch(.2 .01 250 / 35%);
+ --shadow-sheet: 0 24px 90px oklch(.2 .01 250 / 15%);
+ --shadow-dock: 0 10px 35px oklch(.25 .02 250 / 14%), 0 2px 6px oklch(.25 .02 250 / 5%);
  --dock-surface: color-mix(in oklab, var(--card) 88%, transparent);
  --motion-enter: 650ms;
  --ease-spring: cubic-bezier(.22,1,.36,1);
@@ -397,3 +399,38 @@ input:focus-visible,select:focus-visible,textarea:focus-visible { box-shadow:0 0
  *,*::before,*::after { animation:none!important; transition:none!important; }
  .scroll-reveal { opacity:1; transform:none; }
 }
+
+/* Light adaptation of the supplied compact card and icon dock. */
+.balance-card { background:var(--balance-gradient); min-height:232px; border:1px solid var(--border-blue); padding:26px; }
+.balance-number { font-weight:500; }
+.balance-chip { margin-top:15px; color:var(--muted-foreground); opacity:.7; }
+.balance-card .balance-footer { border:0; padding:0; margin-top:15px; align-items:end; }
+.balance-owner-label { font-size:10px; color:var(--muted-foreground); margin-bottom:4px; }
+.balance-owner { font-size:12px; font-weight:600; text-transform:uppercase; color:var(--foreground); }
+.balance-account-link { color:var(--muted-foreground); text-decoration:none; display:flex; align-items:center; gap:6px; white-space:nowrap; }
+.quick-action { height:76px; border-radius:8px; background:var(--secondary); color:var(--foreground); gap:8px; }
+.quick-action:hover { background:var(--accent); }
+.action-icon { width:24px; height:24px; border-radius:0; background:transparent; }
+.quick-action:hover .action-icon { background:transparent; }
+.quick-action:nth-child(n) svg { color:var(--foreground); }
+.daily-spending { background:var(--secondary); border-radius:8px; padding:20px; }
+.daily-spending h2 { font-size:12px; font-weight:500; }
+.daily-spending-total { display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-top:12px; }
+.daily-spending-total>span:first-child { font-size:25px; font-weight:600; }
+.daily-spending-total>span:last-child:not(:first-child) { font-size:10px; color:var(--muted-foreground); }
+.spending-strip { display:flex; gap:4px; height:7px; margin-top:17px; overflow:hidden; border-radius:3px; }
+.spending-strip>span { min-width:3px; border-radius:3px; }
+.spending-tone-0 { background:var(--positive); }.spending-tone-1 { background:var(--information); }.spending-tone-2 { background:var(--violet); }
+.spending-empty { width:100%; background:var(--border); }
+.spending-legend { display:flex; flex-wrap:wrap; gap:8px 12px; margin-top:12px; font-size:9px; color:var(--muted-foreground); }
+.spending-legend>span { display:flex; align-items:center; gap:5px; }.spending-legend i { width:5px; height:5px; border-radius:1px; }
+.floating-dock { position:fixed; inset:auto 18px calc(20px + env(safe-area-inset-bottom)); width:calc(100% - 36px); max-width:360px; margin-inline:auto; display:grid; grid-template-columns:1fr 1fr 1.35fr 1fr 1fr; align-items:center; padding:6px; border:1px solid var(--border); border-radius:999px; background:var(--dock-background); box-shadow:var(--shadow-dock); z-index:40; }
+.floating-dock .dock-link { height:44px; min-height:44px; color:var(--dock-foreground); padding:0; border-radius:999px; }
+.floating-dock .dock-link svg { width:19px; height:19px; }
+.floating-dock .dock-link[data-selected='true'] { background:var(--dock-active); color:var(--foreground); }
+.floating-dock .dock-add { min-width:0; height:44px; border-radius:999px; color:var(--dock-add-foreground); background:var(--dock-add); margin-inline:3px; }
+.floating-dock .dock-add:hover { background:var(--foreground); transform:scale(1.04); }
+.floating-dock .dock-add svg { width:22px; height:22px; }
+@media(min-width:768px) { .floating-dock { left:242px; }.sidebar-collapsed .floating-dock { left:114px; }.main-content { padding-bottom:110px; } }
+@media(max-width:767px) { .home-left { gap:16px; }.balance-card { min-height:210px; padding:22px; }.balance-number { font-size:34px; padding-right:0; }.balance-card .balance-footer { margin-top:12px; flex-wrap:nowrap; }.balance-chip { margin-top:12px; width:28px; height:28px; }.quick-action { height:70px; min-height:70px; }.daily-spending { padding:18px; }.daily-spending-total>span:first-child { font-size:24px; }.home-left>section:not(.balance-card):not(.daily-spending) { margin-top:8px; } }
+@media(max-width:360px) { .balance-number { font-size:30px; }.balance-account-link { font-size:9px; } }
