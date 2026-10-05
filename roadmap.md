@@ -1,6 +1,6 @@
 # Money OS
 
-- [ ] Apply selected deep-blue minimal balance and white activity composition; preserve the existing navbar exactly.
+- [x] Apply selected deep-blue minimal balance and white activity composition; preserve the existing navbar exactly. Verify 320/394/768/1280px and expense saving with no overflow or page errors.
 
 - [x] Audit the installed shadcn library and record an appropriate component usage map in SHADCN_COMPONENT_AUDIT.md.
 - [x] Unify navigation, search, responsive forms, dates, confirmations, and finance presentation with shadcn primitives while preserving the white reference styling.
