@@ -3,6 +3,7 @@
 @source "../src";
 @custom-variant dark (&:is(.dark *));
 :root {
+ color-scheme: dark;
  --radius: .5rem;
  --background: oklch(.115 0 0); --foreground: oklch(.967 .001 286.375);
  --card: oklch(.155 .011 264); --card-foreground: var(--foreground);
