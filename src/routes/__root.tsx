@@ -14,7 +14,6 @@ import appCss from "../styles.css?url";
 import { MoneyProvider } from "@/lib/money/context";
 import { MoneyShell } from "@/components/money/shell";
 import { Toaster } from "sonner";
-import { TooltipProvider } from '@/components/ui/tooltip';
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
@@ -81,7 +80,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   head: () => ({
     meta: [
       { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1, viewport-fit=cover" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Money OS — Your money, made clear" },
       { name: "description", content: "Personal and household finance, thoughtfully organized." },
       
@@ -127,8 +126,8 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: preserve the shared provider and nested route outlet. */}
-      <TooltipProvider delayDuration={250}><MoneyProvider><MoneyShell><Outlet /></MoneyShell><Toaster theme="light" position="top-center" /></MoneyProvider></TooltipProvider>
+      {/* Required: nested routes render here. Removing <MoneyProvider><MoneyShell><Outlet /></MoneyShell><Toaster theme="dark" position="top-center" /></MoneyProvider> breaks all child routes. */}
+      <MoneyProvider><MoneyShell><Outlet /></MoneyShell><Toaster theme="dark" position="top-center" /></MoneyProvider>
     </QueryClientProvider>
   );
 }

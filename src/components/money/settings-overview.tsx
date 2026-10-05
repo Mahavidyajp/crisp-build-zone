@@ -1,6 +1,5 @@
 import { ArrowUpRight, Bell, Database, LockKeyhole, SlidersHorizontal, UserRound } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { useMoney } from '@/lib/money/context';
 import profileImage from '@/assets/profile.jpg';
 
@@ -11,7 +10,7 @@ export function SettingsOverview({ onSelect }: { onSelect: (tab: string) => void
     <div className="settings-bento">
       <section className="settings-profile settings-tile">
         <div className="flex items-center gap-5 min-w-0">
-          <Avatar className="settings-avatar"><AvatarImage src={profileImage} alt="Your profile"/><AvatarFallback>{data.profile.slice(0,1)}</AvatarFallback></Avatar>
+          <img src={profileImage} alt="Your profile" className="settings-avatar" width={80} height={80} />
           <div className="min-w-0">
             <p className="settings-eyebrow">Personal workspace</p>
             <h2 className="break-words">{data.profile}</h2>

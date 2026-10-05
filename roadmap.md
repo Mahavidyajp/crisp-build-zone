@@ -1,18 +1,5 @@
 # Money OS
 
-- [x] Apply selected deep-blue minimal balance and white activity composition; preserve the existing navbar exactly. Verify 320/394/768/1280px and expense saving with no overflow or page errors.
-
-- [x] Audit the installed shadcn library and record an appropriate component usage map in SHADCN_COMPONENT_AUDIT.md.
-- [x] Unify navigation, search, responsive forms, dates, confirmations, and finance presentation with shadcn primitives while preserving the white reference styling.
-- [x] Verify all twenty pages at 375/390/430/768/1024/1280/1440px and exercise expense, income, search, calendar, and confirmation flows; ten regression tests pass.
-
-- [x] Match the uploaded balance section and floating icon navigation in a white theme; verify 320/393/768/1280px layouts, expense action, account navigation, and ten regression tests.
-
-- [x] Apply selected Obsidian styling, floating navigation, open section layouts, shadcn controls and expressive reduced-motion-aware animation.
-- [x] Verify all 20 screens at 320/393/768/1280px, mobile navigation, expense dialog, account edit, activity filtering, preference switches, tooltips, reduced motion and ten regression tests; no overflow or browser errors.
-
-- [x] Apply white-and-light-blue theme, mobile touch controls, stacked forms, full-width summaries and safe-area spacing; verify all 20 screens at 320/375/390/430/768/1280px, expense dialog, and nine financial tests.
-
 - [x] Apply selected Dark Blue Bento styling, Sora/Manrope fonts, and reduced-motion-aware animation without changing financial behavior.
 - [x] Verify updated settings category add/archive, profile navigation, CSV export, expense dialog, nine financial tests, and nine finance screens at 320–1280px; no overflow or browser errors.
 - [x] Build reference-matched adaptive shell and all finance views.
