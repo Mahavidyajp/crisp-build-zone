@@ -10,33 +10,284 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AccountsRouteImport } from './routes/accounts'
+import { Route as ActivityRouteImport } from './routes/activity'
+import { Route as AssetsRouteImport } from './routes/assets'
+import { Route as BudgetsRouteImport } from './routes/budgets'
+import { Route as DocumentsRouteImport } from './routes/documents'
+import { Route as GoalsRouteImport } from './routes/goals'
+import { Route as InvestmentsRouteImport } from './routes/investments'
+import { Route as LiabilitiesRouteImport } from './routes/liabilities'
+import { Route as MoreRouteImport } from './routes/more'
+import { Route as NetWorthRouteImport } from './routes/net-worth'
+import { Route as NotificationsRouteImport } from './routes/notifications'
+import { Route as PaymentsRouteImport } from './routes/payments'
+import { Route as PeopleRouteImport } from './routes/people'
+import { Route as PlanRouteImport } from './routes/plan'
+import { Route as RecurringRouteImport } from './routes/recurring'
+import { Route as SettingsRouteImport } from './routes/settings'
+import { Route as SettlementsRouteImport } from './routes/settlements'
+import { Route as SharedRouteImport } from './routes/shared'
+import { Route as UpcomingRouteImport } from './routes/upcoming'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AccountsRoute = AccountsRouteImport.update({
+  id: '/accounts',
+  path: '/accounts',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ActivityRoute = ActivityRouteImport.update({
+  id: '/activity',
+  path: '/activity',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AssetsRoute = AssetsRouteImport.update({
+  id: '/assets',
+  path: '/assets',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BudgetsRoute = BudgetsRouteImport.update({
+  id: '/budgets',
+  path: '/budgets',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DocumentsRoute = DocumentsRouteImport.update({
+  id: '/documents',
+  path: '/documents',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GoalsRoute = GoalsRouteImport.update({
+  id: '/goals',
+  path: '/goals',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InvestmentsRoute = InvestmentsRouteImport.update({
+  id: '/investments',
+  path: '/investments',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LiabilitiesRoute = LiabilitiesRouteImport.update({
+  id: '/liabilities',
+  path: '/liabilities',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MoreRoute = MoreRouteImport.update({
+  id: '/more',
+  path: '/more',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NetWorthRoute = NetWorthRouteImport.update({
+  id: '/net-worth',
+  path: '/net-worth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NotificationsRoute = NotificationsRouteImport.update({
+  id: '/notifications',
+  path: '/notifications',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PaymentsRoute = PaymentsRouteImport.update({
+  id: '/payments',
+  path: '/payments',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PeopleRoute = PeopleRouteImport.update({
+  id: '/people',
+  path: '/people',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PlanRoute = PlanRouteImport.update({
+  id: '/plan',
+  path: '/plan',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RecurringRoute = RecurringRouteImport.update({
+  id: '/recurring',
+  path: '/recurring',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SettingsRoute = SettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SettlementsRoute = SettlementsRouteImport.update({
+  id: '/settlements',
+  path: '/settlements',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SharedRoute = SharedRouteImport.update({
+  id: '/shared',
+  path: '/shared',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UpcomingRoute = UpcomingRouteImport.update({
+  id: '/upcoming',
+  path: '/upcoming',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/accounts': typeof AccountsRoute
+  '/activity': typeof ActivityRoute
+  '/assets': typeof AssetsRoute
+  '/budgets': typeof BudgetsRoute
+  '/documents': typeof DocumentsRoute
+  '/goals': typeof GoalsRoute
+  '/investments': typeof InvestmentsRoute
+  '/liabilities': typeof LiabilitiesRoute
+  '/more': typeof MoreRoute
+  '/net-worth': typeof NetWorthRoute
+  '/notifications': typeof NotificationsRoute
+  '/payments': typeof PaymentsRoute
+  '/people': typeof PeopleRoute
+  '/plan': typeof PlanRoute
+  '/recurring': typeof RecurringRoute
+  '/settings': typeof SettingsRoute
+  '/settlements': typeof SettlementsRoute
+  '/shared': typeof SharedRoute
+  '/upcoming': typeof UpcomingRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/accounts': typeof AccountsRoute
+  '/activity': typeof ActivityRoute
+  '/assets': typeof AssetsRoute
+  '/budgets': typeof BudgetsRoute
+  '/documents': typeof DocumentsRoute
+  '/goals': typeof GoalsRoute
+  '/investments': typeof InvestmentsRoute
+  '/liabilities': typeof LiabilitiesRoute
+  '/more': typeof MoreRoute
+  '/net-worth': typeof NetWorthRoute
+  '/notifications': typeof NotificationsRoute
+  '/payments': typeof PaymentsRoute
+  '/people': typeof PeopleRoute
+  '/plan': typeof PlanRoute
+  '/recurring': typeof RecurringRoute
+  '/settings': typeof SettingsRoute
+  '/settlements': typeof SettlementsRoute
+  '/shared': typeof SharedRoute
+  '/upcoming': typeof UpcomingRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/accounts': typeof AccountsRoute
+  '/activity': typeof ActivityRoute
+  '/assets': typeof AssetsRoute
+  '/budgets': typeof BudgetsRoute
+  '/documents': typeof DocumentsRoute
+  '/goals': typeof GoalsRoute
+  '/investments': typeof InvestmentsRoute
+  '/liabilities': typeof LiabilitiesRoute
+  '/more': typeof MoreRoute
+  '/net-worth': typeof NetWorthRoute
+  '/notifications': typeof NotificationsRoute
+  '/payments': typeof PaymentsRoute
+  '/people': typeof PeopleRoute
+  '/plan': typeof PlanRoute
+  '/recurring': typeof RecurringRoute
+  '/settings': typeof SettingsRoute
+  '/settlements': typeof SettlementsRoute
+  '/shared': typeof SharedRoute
+  '/upcoming': typeof UpcomingRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/accounts'
+    | '/activity'
+    | '/assets'
+    | '/budgets'
+    | '/documents'
+    | '/goals'
+    | '/investments'
+    | '/liabilities'
+    | '/more'
+    | '/net-worth'
+    | '/notifications'
+    | '/payments'
+    | '/people'
+    | '/plan'
+    | '/recurring'
+    | '/settings'
+    | '/settlements'
+    | '/shared'
+    | '/upcoming'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/accounts'
+    | '/activity'
+    | '/assets'
+    | '/budgets'
+    | '/documents'
+    | '/goals'
+    | '/investments'
+    | '/liabilities'
+    | '/more'
+    | '/net-worth'
+    | '/notifications'
+    | '/payments'
+    | '/people'
+    | '/plan'
+    | '/recurring'
+    | '/settings'
+    | '/settlements'
+    | '/shared'
+    | '/upcoming'
+  id:
+    | '__root__'
+    | '/'
+    | '/accounts'
+    | '/activity'
+    | '/assets'
+    | '/budgets'
+    | '/documents'
+    | '/goals'
+    | '/investments'
+    | '/liabilities'
+    | '/more'
+    | '/net-worth'
+    | '/notifications'
+    | '/payments'
+    | '/people'
+    | '/plan'
+    | '/recurring'
+    | '/settings'
+    | '/settlements'
+    | '/shared'
+    | '/upcoming'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AccountsRoute: typeof AccountsRoute
+  ActivityRoute: typeof ActivityRoute
+  AssetsRoute: typeof AssetsRoute
+  BudgetsRoute: typeof BudgetsRoute
+  DocumentsRoute: typeof DocumentsRoute
+  GoalsRoute: typeof GoalsRoute
+  InvestmentsRoute: typeof InvestmentsRoute
+  LiabilitiesRoute: typeof LiabilitiesRoute
+  MoreRoute: typeof MoreRoute
+  NetWorthRoute: typeof NetWorthRoute
+  NotificationsRoute: typeof NotificationsRoute
+  PaymentsRoute: typeof PaymentsRoute
+  PeopleRoute: typeof PeopleRoute
+  PlanRoute: typeof PlanRoute
+  RecurringRoute: typeof RecurringRoute
+  SettingsRoute: typeof SettingsRoute
+  SettlementsRoute: typeof SettlementsRoute
+  SharedRoute: typeof SharedRoute
+  UpcomingRoute: typeof UpcomingRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +299,163 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/accounts': {
+      id: '/accounts'
+      path: '/accounts'
+      fullPath: '/accounts'
+      preLoaderRoute: typeof AccountsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/activity': {
+      id: '/activity'
+      path: '/activity'
+      fullPath: '/activity'
+      preLoaderRoute: typeof ActivityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/assets': {
+      id: '/assets'
+      path: '/assets'
+      fullPath: '/assets'
+      preLoaderRoute: typeof AssetsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/budgets': {
+      id: '/budgets'
+      path: '/budgets'
+      fullPath: '/budgets'
+      preLoaderRoute: typeof BudgetsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/documents': {
+      id: '/documents'
+      path: '/documents'
+      fullPath: '/documents'
+      preLoaderRoute: typeof DocumentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/goals': {
+      id: '/goals'
+      path: '/goals'
+      fullPath: '/goals'
+      preLoaderRoute: typeof GoalsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/investments': {
+      id: '/investments'
+      path: '/investments'
+      fullPath: '/investments'
+      preLoaderRoute: typeof InvestmentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/liabilities': {
+      id: '/liabilities'
+      path: '/liabilities'
+      fullPath: '/liabilities'
+      preLoaderRoute: typeof LiabilitiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/more': {
+      id: '/more'
+      path: '/more'
+      fullPath: '/more'
+      preLoaderRoute: typeof MoreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/net-worth': {
+      id: '/net-worth'
+      path: '/net-worth'
+      fullPath: '/net-worth'
+      preLoaderRoute: typeof NetWorthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/notifications': {
+      id: '/notifications'
+      path: '/notifications'
+      fullPath: '/notifications'
+      preLoaderRoute: typeof NotificationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/payments': {
+      id: '/payments'
+      path: '/payments'
+      fullPath: '/payments'
+      preLoaderRoute: typeof PaymentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/people': {
+      id: '/people'
+      path: '/people'
+      fullPath: '/people'
+      preLoaderRoute: typeof PeopleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/plan': {
+      id: '/plan'
+      path: '/plan'
+      fullPath: '/plan'
+      preLoaderRoute: typeof PlanRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/recurring': {
+      id: '/recurring'
+      path: '/recurring'
+      fullPath: '/recurring'
+      preLoaderRoute: typeof RecurringRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/settlements': {
+      id: '/settlements'
+      path: '/settlements'
+      fullPath: '/settlements'
+      preLoaderRoute: typeof SettlementsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/shared': {
+      id: '/shared'
+      path: '/shared'
+      fullPath: '/shared'
+      preLoaderRoute: typeof SharedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/upcoming': {
+      id: '/upcoming'
+      path: '/upcoming'
+      fullPath: '/upcoming'
+      preLoaderRoute: typeof UpcomingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AccountsRoute: AccountsRoute,
+  ActivityRoute: ActivityRoute,
+  AssetsRoute: AssetsRoute,
+  BudgetsRoute: BudgetsRoute,
+  DocumentsRoute: DocumentsRoute,
+  GoalsRoute: GoalsRoute,
+  InvestmentsRoute: InvestmentsRoute,
+  LiabilitiesRoute: LiabilitiesRoute,
+  MoreRoute: MoreRoute,
+  NetWorthRoute: NetWorthRoute,
+  NotificationsRoute: NotificationsRoute,
+  PaymentsRoute: PaymentsRoute,
+  PeopleRoute: PeopleRoute,
+  PlanRoute: PlanRoute,
+  RecurringRoute: RecurringRoute,
+  SettingsRoute: SettingsRoute,
+  SettlementsRoute: SettlementsRoute,
+  SharedRoute: SharedRoute,
+  UpcomingRoute: UpcomingRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
