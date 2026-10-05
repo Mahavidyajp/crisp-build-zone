@@ -14,6 +14,7 @@ import appCss from "../styles.css?url";
 import { MoneyProvider } from "@/lib/money/context";
 import { MoneyShell } from "@/components/money/shell";
 import { Toaster } from "sonner";
+import { TooltipProvider } from '@/components/ui/tooltip';
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
@@ -127,7 +128,7 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       {/* Required: nested routes render here. Removing <MoneyProvider><MoneyShell><Outlet /></MoneyShell><Toaster theme="dark" position="top-center" /></MoneyProvider> breaks all child routes. */}
-      <MoneyProvider><MoneyShell><Outlet /></MoneyShell><Toaster theme="light" position="top-center" /></MoneyProvider>
+      <TooltipProvider delayDuration={250}><MoneyProvider><MoneyShell><Outlet /></MoneyShell><Toaster theme="dark" position="top-center" /></MoneyProvider></TooltipProvider>
     </QueryClientProvider>
   );
 }
