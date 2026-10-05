@@ -1,5 +1,8 @@
 # Money OS
 
+- [x] Apply selected Obsidian styling, floating navigation, open section layouts, shadcn controls and expressive reduced-motion-aware animation.
+- [x] Verify all 20 screens at 320/393/768/1280px, mobile navigation, expense dialog, account edit, activity filtering, preference switches, tooltips, reduced motion and ten regression tests; no overflow or browser errors.
+
 - [x] Apply white-and-light-blue theme, mobile touch controls, stacked forms, full-width summaries and safe-area spacing; verify all 20 screens at 320/375/390/430/768/1280px, expense dialog, and nine financial tests.
 
 - [x] Apply selected Dark Blue Bento styling, Sora/Manrope fonts, and reduced-motion-aware animation without changing financial behavior.
