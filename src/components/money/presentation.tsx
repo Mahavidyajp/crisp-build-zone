@@ -42,7 +42,7 @@ const destinations = [
 
 export function FloatingNavigation() {
   const [adding, setAdding] = useState(false);
-  const [form, setForm] = useState<{ type: TransactionType; scan?: boolean }>();
+  const [form, setForm] = useState<{ type: TransactionType; scan?: boolean | undefined }>();
   const path = useRouterState({ select: state => state.location.pathname });
   const active = destinations.find(item => item.paths.includes(path))?.label || 'More';
   const renderDestination = ({ label, path: destination, icon: Icon }: typeof destinations[number]) => (
