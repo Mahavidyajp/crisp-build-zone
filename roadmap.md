@@ -1,5 +1,7 @@
 # Money OS
 
+- [x] Apply selected deep-blue minimal balance and white activity composition; preserve the existing navbar exactly. Verify 320/394/768/1280px and expense saving with no overflow or page errors.
+
 - [x] Audit the installed shadcn library and record an appropriate component usage map in SHADCN_COMPONENT_AUDIT.md.
 - [x] Unify navigation, search, responsive forms, dates, confirmations, and finance presentation with shadcn primitives while preserving the white reference styling.
 - [x] Verify all twenty pages at 375/390/430/768/1024/1280/1440px and exercise expense, income, search, calendar, and confirmation flows; ten regression tests pass.
