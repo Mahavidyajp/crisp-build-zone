@@ -1,9 +1,11 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { Link, useRouterState } from '@tanstack/react-router';
-import { Home, CreditCard, Plus, Wallet, UserRound } from 'lucide-react';
+import { Home, CreditCard, Plus, Wallet, UserRound, ScanLine, ArrowUpRight, ArrowDownLeft, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 import { TransactionForm } from './forms';
+import { Drawer, DrawerContent, DrawerHeader, DrawerTitle, DrawerDescription, DrawerClose } from '@/components/ui/drawer';
+import type { TransactionType } from '@/lib/money/types';
 
 export function Hint({ label, children }: { label: string; children: ReactNode }) {
   return <Tooltip><TooltipTrigger asChild>{children}</TooltipTrigger><TooltipContent>{label}</TooltipContent></Tooltip>;
@@ -33,13 +35,14 @@ export function AnimatedContent({ children }: { children: ReactNode }) {
 
 const destinations = [
   { label: 'Home', path: '/', icon: Home, paths: ['/'] },
-  { label: 'Accounts', path: '/accounts', icon: CreditCard, paths: ['/accounts', '/activity', '/payments'] },
+  { label: 'Money', path: '/accounts', icon: CreditCard, paths: ['/accounts', '/activity', '/payments'] },
   { label: 'Plan', path: '/plan', icon: Wallet, paths: ['/plan', '/budgets', '/goals', '/upcoming', '/recurring'] },
   { label: 'More', path: '/more', icon: UserRound, paths: [] },
 ];
 
 export function FloatingNavigation() {
   const [adding, setAdding] = useState(false);
+  const [form, setForm] = useState<{ type: TransactionType; scan?: boolean | undefined }>();
   const path = useRouterState({ select: state => state.location.pathname });
   const active = destinations.find(item => item.paths.includes(path))?.label || 'More';
   const renderDestination = ({ label, path: destination, icon: Icon }: typeof destinations[number]) => (
@@ -53,7 +56,7 @@ export function FloatingNavigation() {
     );
   return <><nav className="mobile-nav floating-dock" aria-label="Bottom navigation">
     {destinations.slice(0, 2).map(renderDestination)}
-    <Hint label="Add expense"><Button variant="ghost" className="dock-add" aria-label="Add expense" onClick={() => setAdding(true)}><Plus strokeWidth={1.8}/></Button></Hint>
+    <Hint label="Pay & add"><Button variant="ghost" className="dock-add" aria-label="Pay and add" onClick={() => setAdding(true)}><Plus strokeWidth={1.8}/></Button></Hint>
     {destinations.slice(2).map(renderDestination)}
-  </nav>{adding && <TransactionForm open type="Expense" onClose={() => setAdding(false)}/>}</>;
+  </nav><Drawer open={adding} onOpenChange={setAdding} shouldScaleBackground={false}><DrawerContent className="money-action-drawer"><DrawerHeader className="text-left relative"><DrawerTitle>Pay & add</DrawerTitle><DrawerDescription>Everyday money, all in one place.</DrawerDescription><DrawerClose asChild><Button variant="ghost" size="icon" className="absolute right-4 top-3" aria-label="Close actions"><X/></Button></DrawerClose></DrawerHeader><div className="money-action-grid">{[{label:'Add expense',icon:Plus,type:'Expense' as const},{label:'Receive money',icon:ArrowDownLeft,type:'Income' as const},{label:'Transfer money',icon:ArrowUpRight,type:'Transfer' as const},{label:'Record payment',icon:CreditCard,type:'Payment' as const},{label:'Scan receipt',icon:ScanLine,type:'Expense' as const,scan:true}].map(a=><Button key={a.label} variant="secondary" onClick={()=>{setAdding(false);setForm({type:a.type,scan:a.scan})}}><a.icon/><span>{a.label}</span><ArrowUpRight className="ml-auto size-4 text-muted-foreground"/></Button>)}</div></DrawerContent></Drawer>{form && <TransactionForm open type={form.type} scan={form.scan} onClose={() => setForm(undefined)}/>}</>;
 }

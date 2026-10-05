@@ -1,5 +1,9 @@
 # Money OS
 
+- [x] Audit the installed shadcn library and record an appropriate component usage map in SHADCN_COMPONENT_AUDIT.md.
+- [x] Unify navigation, search, responsive forms, dates, confirmations, and finance presentation with shadcn primitives while preserving the white reference styling.
+- [x] Verify all twenty pages at 375/390/430/768/1024/1280/1440px and exercise expense, income, search, calendar, and confirmation flows; ten regression tests pass.
+
 - [x] Match the uploaded balance section and floating icon navigation in a white theme; verify 320/393/768/1280px layouts, expense action, account navigation, and ten regression tests.
 
 - [x] Apply selected Obsidian styling, floating navigation, open section layouts, shadcn controls and expressive reduced-motion-aware animation.

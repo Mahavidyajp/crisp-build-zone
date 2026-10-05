@@ -27,6 +27,8 @@
  --dock-surface: color-mix(in oklab, var(--card) 88%, transparent);
  --motion-enter: 650ms;
  --ease-spring: cubic-bezier(.22,1,.36,1);
+  --sidebar-primary: var(--primary); --sidebar-primary-foreground: var(--primary-foreground);
+  --sidebar-accent: var(--accent); --sidebar-accent-foreground: var(--foreground); --sidebar-border: var(--border); --sidebar-ring: var(--ring);
 }
 @theme inline {
  --font-sans: 'Manrope', sans-serif; --font-display: 'Sora', sans-serif;
@@ -37,6 +39,7 @@
  --color-muted: var(--muted); --color-muted-foreground: var(--muted-foreground); --color-accent: var(--accent); --color-accent-foreground: var(--accent-foreground);
  --color-destructive: var(--destructive); --color-destructive-foreground: var(--destructive-foreground); --color-border: var(--border); --color-input: var(--input); --color-ring: var(--ring);
  --color-positive: var(--positive); --color-warning: var(--warning); --color-information: var(--information); --color-violet: var(--violet); --color-sidebar: var(--sidebar); --color-sidebar-foreground: var(--sidebar-foreground); --color-overlay: var(--overlay);
+  --color-sidebar-primary: var(--sidebar-primary); --color-sidebar-primary-foreground: var(--sidebar-primary-foreground); --color-sidebar-accent: var(--sidebar-accent); --color-sidebar-accent-foreground: var(--sidebar-accent-foreground); --color-sidebar-border: var(--sidebar-border); --color-sidebar-ring: var(--sidebar-ring);
 }
 @layer base {
  * { border-color: var(--border); letter-spacing: 0; }
@@ -434,3 +437,64 @@ input:focus-visible,select:focus-visible,textarea:focus-visible { box-shadow:0 0
 @media(min-width:768px) { .floating-dock { left:242px; }.sidebar-collapsed .floating-dock { left:114px; }.main-content { padding-bottom:110px; } }
 @media(max-width:767px) { .home-left { gap:16px; }.balance-card { min-height:210px; padding:22px; }.balance-number { font-size:34px; padding-right:0; }.balance-card .balance-footer { margin-top:12px; flex-wrap:nowrap; }.balance-chip { margin-top:12px; width:28px; height:28px; }.quick-action { height:70px; min-height:70px; }.daily-spending { padding:18px; }.daily-spending-total>span:first-child { font-size:24px; }.home-left>section:not(.balance-card):not(.daily-spending) { margin-top:8px; } }
 @media(max-width:360px) { .balance-number { font-size:30px; }.balance-account-link { font-size:9px; } }
+
+/* Unified, adaptive shadcn presentation. */
+.money-shell { --sidebar-width: 14rem !important; --sidebar-width-icon: 3.5rem !important; }
+.money-shell .app-main,.money-shell.sidebar-collapsed .app-main { margin-left:0; flex:1; min-width:0; width:0; }
+.money-sidebar { padding:16px 8px 16px 16px; }
+ .money-sidebar [data-sidebar='sidebar'] { border-radius:20px; box-shadow:none; }
+.money-brand { display:flex; align-items:center; gap:12px; padding:20px 10px 26px; font-family:var(--font-display); font-weight:600; font-size:19px; text-decoration:none; color:var(--foreground); white-space:nowrap; }
+.money-sidebar [data-sidebar='menu-button'] { min-height:44px; font-size:13px; border-radius:6px; }
+.money-sidebar [data-sidebar='menu-button'][data-active='true'] { color:var(--primary); }
+.money-sidebar [data-sidebar='menu-sub-button'] { min-height:36px; font-size:12px; }
+.money-sidebar .money-group-toggle { position:absolute; right:0; top:0; width:36px; min-height:44px; justify-content:center; }
+.money-sidebar [data-sidebar='content'] { gap:8px; }
+.search-shortcut { margin-left:24px; border:1px solid var(--border); border-radius:4px; padding:3px 6px; font-size:10px; }
+.money-select { width:100%; min-height:44px; height:auto; padding:11px 12px; justify-content:space-between; gap:12px; background:var(--secondary); border:1px solid var(--input); box-shadow:none; font-weight:400; font-size:13px; }
+.money-select>span { min-width:0; text-align:left; }
+.money-combobox { width:var(--radix-popover-trigger-width); max-width:calc(100vw - 32px); }
+ .money-dialog { width:calc(100% - 40px); max-width:540px; max-height:88dvh; overflow-y:auto; border-radius:20px; box-shadow:var(--shadow-sheet); padding:28px; }
+.money-surface-body { padding-top:20px; min-width:0; }
+ .money-mobile-sheet { max-height:92dvh; overflow-y:auto; padding:28px 22px calc(24px + env(safe-area-inset-bottom)); border-radius:24px 24px 0 0; box-shadow:var(--shadow-sheet); }
+ .money-confirm { width:calc(100% - 32px); border-radius:20px; }
+.money-confirm button { min-height:44px; }
+ .money-action-drawer { max-width:540px; margin-inline:auto; max-height:90dvh; overflow-y:auto; border-radius:24px 24px 0 0; }
+.money-action-grid { display:grid; gap:10px; padding:8px 20px calc(28px + env(safe-area-inset-bottom)); }
+.money-action-grid>button { min-height:56px; justify-content:flex-start; gap:14px; border-radius:6px; }
+.money-search [cmdk-item] { min-height:48px; }
+.money-search p { margin:0; }
+.money-search [cmdk-input] { background:transparent; border:0; }
+.money-dialog:has(.money-search) { padding:24px; }
+.form-stack label { color:var(--muted-foreground); margin-bottom:8px; font-size:12px; }
+.form-stack input { min-height:44px; }
+.item-card { display:block; box-shadow:none; }
+.cash-flow-chart { height:160px; width:100%; margin-top:24px; aspect-ratio:auto; }
+.mobile-activity { display:none; }
+.desktop-activity table { table-layout:auto; font-size:13px; }
+.desktop-activity td { padding:14px 8px; }
+.desktop-activity th { font-size:11px; }
+.desktop-activity th button { font-size:11px; padding:0; }
+.floating-dock { animation:dock-arrive 800ms var(--ease-spring) both; }
+.floating-dock .dock-link { transition:background 220ms,color 220ms,transform 220ms; }
+.floating-dock .dock-link:active { transform:scale(.92); }
+.money-shell .floating-dock { left:242px; }
+.money-shell.sidebar-collapsed .floating-dock { left:90px; }
+.balance-card { min-height:248px; padding:28px; }
+.balance-card h2 { font-size:13px; }
+.balance-number { margin-top:10px; }
+.balance-card .balance-footer { margin-top:20px; }
+.home-left,.home-right { gap:24px; }
+@media(max-width:1023px) { .desktop-activity { display:none; }.mobile-activity { display:block; } }
+@media(max-width:767px) {
+ .money-shell .app-main { width:100%; }
+ .money-shell .floating-dock,.money-shell.sidebar-collapsed .floating-dock { left:18px; }
+ .balance-card { min-height:224px; padding:24px; }
+ .balance-number { font-size:34px; }
+ .balance-card .balance-footer { margin-top:16px; }
+ .form-stack button:not([role='switch']):not([role='checkbox']) { min-height:44px; }
+ .money-mobile-sheet>button { width:44px; height:44px; display:grid; place-items:center; top:10px; right:10px; }
+ .money-mobile-sheet .field-grid { grid-template-columns:1fr; }
+ [data-slot='calendar'] { --cell-size:2.4rem; }
+}
+@media(max-width:360px) { .balance-number { font-size:30px; }.balance-card { padding:20px; }.money-shell .floating-dock { left:12px; } }
+@media(prefers-reduced-motion:reduce) { .floating-dock { animation:none; } }
